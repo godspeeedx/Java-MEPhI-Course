@@ -11,7 +11,7 @@ public class Class03 {
         System.out.println("Введите три целочисленных значения:");
         Scanner in = new Scanner(System.in);
 
-        int numbers[] = new int[3];
+        int[] numbers = new int[3];
         int i = 0;
 
         do {
@@ -23,6 +23,8 @@ public class Class03 {
             i++;
         } while (i < 3);
 
-
+        System.out.printf("\nСамое большое число через условную операцию - %d\n", numbers[0] >= numbers[1] ? numbers[0] : numbers[1] >= numbers[2] ? numbers[1] : numbers[2]);
+        System.out.printf("Самое большое число через метод Math.max - %d\n", Math.max(numbers[0], Math.max(numbers[1], numbers[2])));
+        System.out.println("\nЗадание выполнено!");
     }
 }
