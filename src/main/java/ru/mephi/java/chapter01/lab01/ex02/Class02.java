@@ -17,7 +17,7 @@ public class Class02 {
             in.next();
         }
         int angle = in.nextInt();
-        System.out.printf("C помощью операции %% - %d\n", angle % 360);
+        System.out.printf("C помощью операции %% - %d\n", ((angle % 360) + 360) % 360);
         System.out.printf("С помощью метода floorMod() - %d\n", Math.floorMod(angle, 360));
         System.out.println("\nЗадание выполнено!");
 
