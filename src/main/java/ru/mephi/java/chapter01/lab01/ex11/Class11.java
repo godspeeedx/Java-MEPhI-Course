@@ -13,7 +13,7 @@ public class Class11 {
         int[] codePoints = stroka.codePoints().toArray();
         for (int i = 0; i < stroka.codePointCount(0, stroka.length()); i++) {
             if (codePoints[i] >= 128) {
-                System.out.printf("Символ - %с, значение в Юникоде - %d\n", stroka.charAt(i), codePoints[i]);
+                System.out.printf("Символ - %s, значение в Юникоде - %d\n", stroka.charAt(i), codePoints[i]);
             }
         }
         System.out.println("\nЗадание выполнено!");

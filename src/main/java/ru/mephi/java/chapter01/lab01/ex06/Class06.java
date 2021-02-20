@@ -9,7 +9,6 @@ public class Class06 {
     public static void main(String[] args) {
 
         BigInteger factorial = BigInteger.valueOf(1);
-        //BigInteger factorial = new BigInteger("1");
         for (int i = 1; i<=1000; i++) {
             factorial = factorial.multiply(BigInteger.valueOf(i));
         }
