@@ -32,14 +32,14 @@ public class Class15 {
             for (int j = 0; j < n; j++) {
                 stroka.add(0);
             }
-                stroka.set(0, 1);
-                stroka.set(i, 1);
-                for (int l = 1; l < i; l++) {
-                    stroka.set(l, pascTri.get(i - 1).get(l - 1) + pascTri.get(i - 1).get(l));
-                }
-                pascTri.add(stroka);
+            stroka.set(0, 1);
+            stroka.set(i, 1);
+            for (int l = 1; l < i; l++) {
+                stroka.set(l, pascTri.get(i - 1).get(l - 1) + pascTri.get(i - 1).get(l));
             }
-        return pascTri;
+            pascTri.add(stroka);
         }
+        return pascTri;
+    }
 
 }

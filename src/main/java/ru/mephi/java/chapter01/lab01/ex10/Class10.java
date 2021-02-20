@@ -9,7 +9,7 @@ public class Class10 {
     public static void main(String[] args) {
         Random generator = new Random();
         long number = generator.nextLong();
-        System.out.println("\n" + Long.toString(number,36));
+        System.out.println("\n" + Long.toString(number, 36));
 
         System.out.println("\nЗадание выполнено!");
     }

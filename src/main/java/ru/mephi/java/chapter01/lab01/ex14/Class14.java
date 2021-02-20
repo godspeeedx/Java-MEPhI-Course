@@ -17,22 +17,24 @@ import java.util.Scanner;
 public class Class14 {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> arr = GetSquareArray();
-        if(!CheckContent(arr)){
+        if (!CheckContent(arr)) {
             System.out.println("Пустой ввод!");
             return;
         }
         if (!CheckSquare(arr)) {
-            System.out.println("Not a square!");
+            System.out.println("Матрица не квадратная!");
             return;
         }
         if (CheckMagic(arr))
-            System.out.println("It's magick!");
-        else System.out.println("No magick(");
+            System.out.println("Введенный квадрат действительно магический!");
+        else System.out.println("Введеная матрица не квадратная");
+
+        System.out.println("\nЗадание выполнено!");
     }
 
     public static ArrayList<ArrayList<Integer>> GetSquareArray() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter some numbers:");
+        System.out.println("Введите несколько строк, разделенных пробелом:");
         ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
         for (; ; ) {
             String inStr = in.nextLine();

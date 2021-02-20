@@ -9,6 +9,7 @@ package ru.mephi.java.chapter01.lab01.ex12;
 public class Class12 {
     public static void main(String[] args) {
         System.out.println("Смотрим на классы!");
+        System.out.println("\nЗадание выполнено!");
     }
 
     private int match(byte[] src, byte[] b, byte[] lastOcc, byte[] optoSft) {
