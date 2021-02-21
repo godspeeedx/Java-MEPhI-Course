@@ -19,7 +19,7 @@ public class Class15 {
     public static void print(ArrayList<ArrayList<Integer>> input) {
         for (ArrayList<Integer> i : input) {
             for (Integer j : i) {
-                System.out.printf("%d", j);
+                System.out.printf(" %d", j);
             }
             System.out.println();
         }

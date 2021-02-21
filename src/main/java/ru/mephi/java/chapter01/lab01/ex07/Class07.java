@@ -3,8 +3,6 @@ package ru.mephi.java.chapter01.lab01.ex07;
 // Напишите программу, вводящую два числа в пределах от 0 до 65535, сохраняющую их в переменных типа short
 // и вычисляющую их сумму, разность, произведение, частное и остаток без знака, не преобразуя эти величины в тип int.
 
-// Я понаписал в беседе как все надо сделать по-крутому, но сам так и не допер как по нормальному. Пока так.
-
 import java.util.Scanner;
 
 public class Class07 {
@@ -19,10 +17,10 @@ public class Class07 {
         short sh1 = ToShort(number1);
         short sh2 = ToShort(number2);
 
-        System.out.printf("1 - %d\n", sh1);
+        /*System.out.printf("1 - %d\n", sh1);
         System.out.printf("2 - %d\n", sh2);
         System.out.println(sh1 + sh2);
-        System.out.println(sh1 - sh2);
+        System.out.println(sh1 - sh2);*/
 
         System.out.printf("\nРезультат сложения - %d\n", ToInt(Addition(sh1, sh2)));
         System.out.printf("Результат вычитания - %d\n", ToInt(Subtraction(sh1, sh2)));

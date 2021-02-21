@@ -10,6 +10,8 @@ public class Class09 {
         String s = new String("samestring");
         String t = new String("samestring");
 
+
+
         System.out.printf("s.equals(t) должно быть true - %b\n", s.equals(t));
         System.out.printf("s == t должно быть false - %b\n", s == t);
 

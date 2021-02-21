@@ -16,23 +16,24 @@ import java.util.Scanner;
 
 public class Class14 {
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> arr = GetSquareArray();
-        if (!CheckContent(arr)) {
-            System.out.println("Пустой ввод!");
-            return;
-        }
-        if (!CheckSquare(arr)) {
+        ArrayList<ArrayList<Integer>> arr = Matrix();
+
+        if (!IsSquare(arr)) {
             System.out.println("Матрица не квадратная!");
             return;
         }
-        if (CheckMagic(arr))
+        if (!IsEmpty(arr)) {
+            System.out.println("Пустой ввод!");
+            return;
+        }
+        if (IsMagic(arr))
             System.out.println("Введенный квадрат действительно магический!");
         else System.out.println("Введеная матрица не квадратная");
 
         System.out.println("\nЗадание выполнено!");
     }
 
-    public static ArrayList<ArrayList<Integer>> GetSquareArray() {
+    public static ArrayList<ArrayList<Integer>> Matrix() {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите несколько строк, разделенных пробелом:");
         ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
@@ -48,13 +49,14 @@ public class Class14 {
             }
             arr.add(subArr);
         }
+
     }
 
-    public static boolean CheckContent(ArrayList<ArrayList<Integer>> arr) {
+    public static boolean IsEmpty(ArrayList<ArrayList<Integer>> arr) {
         return arr.size() != 0;
     }
 
-    public static boolean CheckSquare(ArrayList<ArrayList<Integer>> arr) {
+    public static boolean IsSquare(ArrayList<ArrayList<Integer>> arr) {
         for (int i = 0; i < arr.size(); i++) {
             if (arr.size() != arr.get(i).size())
                 return false;
@@ -62,57 +64,57 @@ public class Class14 {
         return true;
     }
 
-    public static boolean CheckMagic(ArrayList<ArrayList<Integer>> arr) {
+    public static boolean IsMagic(ArrayList<ArrayList<Integer>> arr) {
         return RowsCheckSum(arr) && ColumnsCheckSum(arr) && DiagonalsCheckSum(arr);
     }
 
     public static boolean RowsCheckSum(ArrayList<ArrayList<Integer>> arr) {
-        int row_control_sum = 0;
+        int buffSum = 0;
         for (int i = 0; i < arr.get(0).size(); i++) {
-            row_control_sum += arr.get(0).get(i);
+            buffSum += arr.get(0).get(i);
         }
         for (int i = 1; i < arr.size(); i++) {
-            int row_sum = 0;
+            int rowSum = 0;
             for (int j = 0; j < arr.get(i).size(); j++) {
-                row_sum += arr.get(i).get(j);
+                rowSum += arr.get(i).get(j);
             }
-            if (row_sum != row_control_sum)
+            if (rowSum != buffSum)
                 return false;
         }
         return true;
     }
 
     public static boolean ColumnsCheckSum(ArrayList<ArrayList<Integer>> arr) {
-        int column_control_sum = 0;
-        for (ArrayList<Integer> integers : arr) {
-            column_control_sum += integers.get(0);
+        int buffSum = 0;
+        for (ArrayList<Integer> i : arr) {
+            buffSum += i.get(0);
         }
         for (int i = 1; i < arr.size(); i++) {
-            int column_sum = 0;
-            for (ArrayList<Integer> integers : arr) {
-                column_sum += integers.get(i);
+            int colSum = 0;
+            for (ArrayList<Integer> n : arr) {
+                colSum += n.get(i);
             }
-            if (column_sum != column_control_sum)
+            if (colSum != buffSum)
                 return false;
         }
         return true;
     }
 
     public static boolean DiagonalsCheckSum(ArrayList<ArrayList<Integer>> arr) {
-        int first_diagonal_sum = 0, second_diagonal_sum = 0;
+        int firstSum = 0, secondSum = 0;
         for (int i = 0; i < arr.size(); i++) {
             for (int j = 0; j < arr.size(); j++) {
                 if (i == j)
-                    first_diagonal_sum += arr.get(i).get(j);
+                    firstSum += arr.get(i).get(j);
             }
         }
         for (int i = 0; i < arr.size(); i++) {
             for (int j = arr.size() - 1; j >= 0; j--) {
                 if (j == arr.size() - 1 - i)
-                    second_diagonal_sum += arr.get(i).get(j);
+                    secondSum += arr.get(i).get(j);
             }
         }
-        return first_diagonal_sum == second_diagonal_sum;
+        return firstSum == secondSum;
     }
 
 }

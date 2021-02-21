@@ -12,7 +12,7 @@ public class Class12 {
         System.out.println("\nЗадание выполнено!");
     }
 
-    private int match(byte[] src, byte[] b, byte[] lastOcc, byte[] optoSft) {
+    private int check(byte[] src, byte[] b, byte[] lastOcc, byte[] optoSft) {
         int len = src.length;
         int last = b.length - len;
         int i = 0;
@@ -25,7 +25,6 @@ public class Class12 {
                     if (c != src[j]) {
                         int badShift = lastOcc[c - 32];
                         i += Math.max(j + 1 - badShift, optoSft[j]);
-                        continue next;
                     }
                 } else {
                     i += len;
@@ -37,7 +36,7 @@ public class Class12 {
         return -1;
     }
 
-    private int matchImproved(byte[] src, byte[] b, byte[] lastOcc, byte[] optoSft) {
+    private int checkImproved(byte[] src, byte[] b, byte[] lastOcc, byte[] optoSft) {
         int len = src.length;
         int last = b.length - len;
         int i = 0;
@@ -50,8 +49,6 @@ public class Class12 {
                     if (c != src[j]) {
                         int badShift = lastOcc[c - 32];
                         i += Math.max(j + 1 - badShift, optoSft[j]);
-                        flag = true;
-                        break;
                     }
                 } else {
 
