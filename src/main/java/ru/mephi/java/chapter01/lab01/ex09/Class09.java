@@ -7,8 +7,8 @@ package ru.mephi.java.chapter01.lab01.ex09;
 public class Class09 {
     public static void main(String[] args) {
 
-        String s = new String("samestring");
-        String t = new String("samestring");
+        String s = new String("samestringasfasfa");
+        String t = new String("samestringfadfa");
 
 
 
