@@ -26,22 +26,22 @@ public class Class15 {
         }
         return length;
     }
-    
+
     public static void print(ArrayList<ArrayList<Integer>> input) {
         int lastLineSymbolNum=lineSymbolCounter(input.get(input.size()-1));
-        
+
         for (ArrayList<Integer> i : input) {
             int thisLineSymbolNum=lineSymbolCounter(i);
-            
-            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
-            
-            for (Integer j : i)
+
+            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.print(" ");
+
+            for (Integer j : i){
                 if (j != 0)
                     System.out.printf(" %d", j);
             }
-            
-            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
-                        
+
+            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.print(" ");
+
             System.out.println();
         }
     }
