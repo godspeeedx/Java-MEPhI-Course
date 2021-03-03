@@ -35,8 +35,9 @@ public class Class15 {
             
             for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
             
-            for (Integer j : i) {
-                System.out.printf(" %d", j);
+            for (Integer j : i)
+                if (j != 0)
+                    System.out.printf(" %d", j);
             }
             
             for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
