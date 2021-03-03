@@ -16,11 +16,31 @@ public class Class15 {
         System.out.println("\nЗадание выполнено!");
     }
 
+    public static int lineSymbolCounter(ArrayList<Integer> line) {
+        char[] charLine = line.toString().toCharArray();
+        int length=0;
+        for ( int i=0; i<line.toString().length(); i++){
+            if (charLine[i] == ' ' && charLine[i+1] == '0') break;
+            if (charLine[i] == '[' || charLine[i] == ',' || charLine[i] == ']') continue;
+            length++;
+        }
+        return length;
+    }
+    
     public static void print(ArrayList<ArrayList<Integer>> input) {
+        int lastLineSymbolNum=lineSymbolCounter(input.get(input.size()-1));
+        
         for (ArrayList<Integer> i : input) {
+            int thisLineSymbolNum=lineSymbolCounter(i);
+            
+            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
+            
             for (Integer j : i) {
                 System.out.printf(" %d", j);
             }
+            
+            for (int j=0; j<(lastLineSymbolNum-thisLineSymbolNum)/2; j++) System.out.printf(" ");
+                        
             System.out.println();
         }
     }
