@@ -48,28 +48,28 @@ public class Class15 {
     }
     public static void print(ArrayList<ArrayList<Integer>> input) {
         ArrayList<Integer> lastLine = input.get(input.size() - 1);
-        int maxNumWidth = Integer.toString(lastLine.get((lastLine.size() - 1) / 2)).length();
+        Integer maxNum = lastLine.get((lastLine.size() - 1) / 2);
+        String maxNumStr = Integer.toString(maxNum);
+        int maxNumWidth = maxNumStr.length();
 
         for (int i = 0; i < input.size(); i++) {
             //Вывод первых пробелов
-            for (int l = 0; l < (input.size() - 1 - i) * (maxNumWidth + 1) / 2; l++)
-                System.out.printf(" ");
-
+            System.out.print(" ".repeat((input.size() - 1 - i) * (maxNumWidth + 1) / 2));
+            //Вывод блоков
             for (int j = 0; j <= i; j++) {
                 //Вывод по блоку (сначала добавляяем в блок число)
-                String numBlock = Integer.toString(input.get(i).get(j));
+                StringBuilder numBlock = new StringBuilder(Integer.toString(input.get(i).get(j)));
                 int totalPad = maxNumWidth - numBlock.length();
-                //правые пробелы
-                for (int l = 0; l < totalPad / 2; l++)
-                    numBlock = numBlock + " ";
-                //левые пробелы
-                for (int l = 0; l < totalPad - (totalPad / 2); l++)
-                    numBlock = " " + numBlock;
-                //вывод блока
+                //Правые пробелы
+                numBlock.append(" ".repeat(totalPad / 2));
+                //Левые пробелы
+                numBlock.insert(0, " ".repeat(totalPad - (totalPad / 2)));
+                //Междублоковый пробел
+                numBlock.append(" ");
+                //Вывод блока
                 System.out.print(numBlock);
-                if (j < i)
-                    System.out.print(" ");
-                else
+
+                if (j == i)
                     System.out.println();
             }
         }
