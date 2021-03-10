@@ -7,27 +7,43 @@ import java.util.*;
 
 public class Class15 {
     public static void main(String[] args) {
-        int n = Int("Введите размер треугольника Паскаля");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите размер треугольника Паскаля");
+        int n = in.nextInt();
         ArrayList<ArrayList<Integer>> pascTri = create(n);
         System.out.println("Полученный треугольник:");
         print(pascTri);
+        System.out.println("\nЗадание выполнено!");
     }
-    public static int Int(String text) {
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.println(text);
-            if (sc.hasNextInt() == true)
-                break;
-            else {
-                System.out.println("Wrong input type, try from -2 147 483 648 to 2 147 483 647 ");
-                sc.next();
+
+    public static void print(ArrayList<ArrayList<Integer>> input) {
+        ArrayList<Integer> lastLine = input.get(input.size() - 1);
+        int maxNumWidth = Integer.toString(lastLine.get((lastLine.size() - 1) / 2)).length();
+
+        for (int i = 0; i < input.size(); i++) {
+            //Вывод первых пробелов
+            for (int l = 0; l < (input.size() - 1 - i) * (maxNumWidth + 1) / 2; l++)
+                System.out.print(" ");
+
+            for (int j = 0; j <= i; j++) {
+                //Вывод по блоку (сначала добавляяем в блок число)
+                StringBuilder numBlock = new StringBuilder(Integer.toString(input.get(i).get(j)));
+                int totalPad = maxNumWidth - numBlock.length();
+                //правые пробелы
+                numBlock.append(" ".repeat(Math.max(0, totalPad / 2)));
+                //левые пробелы
+                for (int l = 0; l < totalPad - (totalPad / 2); l++)
+                    numBlock.insert(0, " ");
+                //вывод блока
+                System.out.print(numBlock);
+                if (j < i)
+                    System.out.print(" ");
+                else
+                    System.out.println();
             }
-        } while (true);
-        int input = sc.nextInt();
-        System.out.println("You've printed: " + input);
-        //sc.close();
-        return input;
+        }
     }
+
     public static ArrayList<ArrayList<Integer>> create(int n) {
         ArrayList<ArrayList<Integer>> pascTri = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -46,32 +62,5 @@ public class Class15 {
         }
         return pascTri;
     }
-    public static void print(ArrayList<ArrayList<Integer>> input) {
-        ArrayList<Integer> lastLine = input.get(input.size() - 1);
-        int maxNumWidth = Integer.toString(lastLine.get((lastLine.size() - 1) / 2)).length();
 
-        for (int i = 0; i < input.size(); i++) {
-            //Вывод первых пробелов
-            for (int l = 0; l < (input.size() - 1 - i) * (maxNumWidth + 1) / 2; l++)
-                System.out.printf(" ");
-
-            for (int j = 0; j <= i; j++) {
-                //Вывод по блоку (сначала добавляяем в блок число)
-                String numBlock = Integer.toString(input.get(i).get(j));
-                int totalPad = maxNumWidth - numBlock.length();
-                //правые пробелы
-                for (int l = 0; l < totalPad / 2; l++)
-                    numBlock = numBlock + " ";
-                //левые пробелы
-                for (int l = 0; l < totalPad - (totalPad / 2); l++)
-                    numBlock = " " + numBlock;
-                //вывод блока
-                System.out.print(numBlock);
-                if (j < i)
-                    System.out.print(" ");
-                else
-                    System.out.println();
-            }
-        }
-    }
 }
