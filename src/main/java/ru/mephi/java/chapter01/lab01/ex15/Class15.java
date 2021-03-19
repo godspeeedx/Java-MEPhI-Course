@@ -18,28 +18,29 @@ public class Class15 {
 
     public static void print(ArrayList<ArrayList<Integer>> input) {
         ArrayList<Integer> lastLine = input.get(input.size() - 1);
-        int maxNumWidth = Integer.toString(lastLine.get((lastLine.size() - 1) / 2)).length();
+        int longestNumber = Integer.toString(lastLine.get((lastLine.size() - 1) / 2)).length();
 
         for (int i = 0; i < input.size(); i++) {
-            //Вывод первых пробелов
-            for (int l = 0; l < (input.size() - 1 - i) * (maxNumWidth + 1) / 2; l++)
+            for (int l = 0; l < (input.size() - 1 - i) * (longestNumber + 1) / 2; l++) {
                 System.out.print(" ");
+            }
 
             for (int j = 0; j <= i; j++) {
-                //Вывод по блоку (сначала добавляяем в блок число)
-                StringBuilder numBlock = new StringBuilder(Integer.toString(input.get(i).get(j)));
-                int totalPad = maxNumWidth - numBlock.length();
-                //правые пробелы
-                numBlock.append(" ".repeat(Math.max(0, totalPad / 2)));
-                //левые пробелы
-                for (int l = 0; l < totalPad - (totalPad / 2); l++)
-                    numBlock.insert(0, " ");
-                //вывод блока
-                System.out.print(numBlock);
-                if (j < i)
+                StringBuilder block = new StringBuilder(Integer.toString(input.get(i).get(j)));
+                int totalDiff = longestNumber - block.length();
+
+                block.append(" ".repeat(Math.max(0, totalDiff / 2)));
+
+                for (int l = 0; l < totalDiff - (totalDiff / 2); l++) {
+                    block.insert(0, " ");
+                }
+
+                System.out.print(block);
+                if (j < i) {
                     System.out.print(" ");
-                else
+                } else {
                     System.out.println();
+                }
             }
         }
     }
