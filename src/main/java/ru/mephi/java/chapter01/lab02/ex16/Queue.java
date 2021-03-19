@@ -10,10 +10,9 @@ public class Queue {
     private Node head;
     private Node tail;
 
-    private class Node {
+    private static class Node {
         private final String data;
         Node next;
-        Node prev;
 
         public Node(String data) {
             this.data = data;
@@ -22,7 +21,6 @@ public class Queue {
         public String getData() {
             return this.data;
         }
-
     }
 
     public void add(String data) {

@@ -10,8 +10,8 @@ public class Invoice {
 
     public static void main(String[] args) {
         Invoice invoice = new Invoice();
-        invoice.addItem("Karamelka \"Limonnaya\"", 3, 24.95);
-        invoice.addItem("Marmeladka Sovetskaya", 2, 49.95);
+        invoice.addItem("Karamelka ", 3, 24.95);
+        invoice.addItem("Marmeladka", 2, 49.95);
         invoice.print();
     }
 

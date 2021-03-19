@@ -1,4 +1,4 @@
-package ru.mephi.java.chapter01.lab02.ex12;
+package ru.mephi.java.chapter01.lab01.ex12;
 
 public class HelloWorld {
     public static void main(String[] args) {

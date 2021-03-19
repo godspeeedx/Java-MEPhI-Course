@@ -13,7 +13,7 @@ public class Class17 {
         private Node head;
         private Node tail;
 
-        private class Node {
+        private static class Node {
             private final String data;
             Node next;
 
