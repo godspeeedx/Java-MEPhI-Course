@@ -6,7 +6,6 @@ package ru.mephi.java.chapter01.lab02.ex03;
 
 
 import java.util.Scanner;
-
 public class Konfeta {
 
     private String color;

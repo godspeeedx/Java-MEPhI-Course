@@ -18,23 +18,23 @@ public class Class01 {
             month = date.getMonthValue();
         }
 
-        System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
+        System.out.println(" Sun Mon Tue Wed Thu Fri Sat"); // change the order of dates
         DayOfWeek weekday = date.getDayOfWeek();
         int value = weekday.getValue(); // 1 = Monday, ... 7 = Sunday
-        for (int i = 1; i < (value % 7 + 1); i++)
+        for (int i = 1; i < (value % 7 + 1); i++) // different condition for first 4 spaces
             System.out.print("    ");
         while (date.getMonthValue() == month) {
             System.out.printf("%4d", date.getDayOfMonth());
             date = date.plusDays(1);
-            if (date.getDayOfWeek().getValue() == 7)
+            if (date.getDayOfWeek().getValue() == 7) // different condition for moving to a new week
                 System.out.println();
         }
         System.out.println();
     }
 }
 
-
-/*public class Cal {
+/*
+public class Cal {
     public static void main(String[] args) {
         LocalDate date = LocalDate.now().withDayOfMonth(1);
         int month;
@@ -58,6 +58,7 @@ public class Class01 {
                 System.out.println();
         }
         if (date.getDayOfWeek().getValue() != 1)
-            System.out.println();
+           System.out.println();
     }
-}*/
+}
+*/

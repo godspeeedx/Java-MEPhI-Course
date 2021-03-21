@@ -12,7 +12,7 @@ public class Class09 {
         golf.drive(110);
         golf.refuel(5);
         System.out.println("Fuel level is " + golf.getFuel());
-        System.out.println("Distance traveled is "+ golf.getDistance());
+        System.out.println("Distance traveled is " + golf.getDistance());
     }
 
     public static class Car {
@@ -29,11 +29,11 @@ public class Class09 {
             this(consumptionRate, 10);
         }
 
-        public double getFuel(){
+        public double getFuel() {
             return this.fuel;
         }
 
-        public double getDistance(){
+        public double getDistance() {
             return this.distance;
         }
 
@@ -47,7 +47,7 @@ public class Class09 {
             }
         }
 
-        public void refuel(double fuel){
+        public void refuel(double fuel) {
             this.fuel += fuel;
         }
 

@@ -10,9 +10,10 @@ package ru.mephi.java.chapter01.lab02.ex05;
 
 /**
  * A <code> Point <code/> object represents a point on a plane.
+ *
  * @author godspeeedx
  * @version 1.0
-*/
+ */
 public class Point {
     /**
      * x coordinate
@@ -43,6 +44,8 @@ public class Point {
 
     /**
      * Returns the value of x coordinate
+     *
+     * @return the value of x coordinate
      */
 
     public double getX() {
@@ -51,22 +54,38 @@ public class Point {
 
     /**
      * Returns the value of y coordinate
+     *
+     * @return the value of x coordinate
      */
 
     public double getY() {
         return this.y;
     }
 
+    /**
+     * Moves the point by a given amount in x- and y-direction
+     *
+     * @param x the amount point moves along the x axis
+     * @param y the amount point moves along the y axis
+     * @return a new Point object with new coordinates
+     */
     public Point translate(double x, double y) {
-        return new Point (this.x+x,this.y+y);
+        return new Point(this.x + x, this.y + y);
     }
 
+    /**
+     * Scales both of the coordinates by a given factor
+     *
+     * @param factor multiplies both of the coordinates by this value
+     * @return a new Point object with new coordinates
+     */
+
     public Point scale(double factor) {
-        return new Point(this.x*factor,this.y*factor);
+        return new Point(this.x * factor, this.y * factor);
     }
 
     public static void main(String[] args) {
-        Point p = new Point(3,4).translate(1,3).scale(0.5);
+        Point p = new Point(3, 4).translate(1, 3).scale(0.5);
         System.out.println("\nPoint is located at " + p.getX() + " at the X axis and " + p.getY() + " at the Y axis");
     }
 }
