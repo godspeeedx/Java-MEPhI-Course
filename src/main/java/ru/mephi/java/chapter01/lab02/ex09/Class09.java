@@ -43,7 +43,7 @@ public class Class09 {
                 System.out.println("Not enough fuel. You need " + fuelNeeded + " fuel to drive " + distance + ", but you only have " + this.fuel);
             } else {
                 this.distance += distance;
-                this.fuel -= fuel;
+                this.fuel -= fuelNeeded;
             }
         }
 
