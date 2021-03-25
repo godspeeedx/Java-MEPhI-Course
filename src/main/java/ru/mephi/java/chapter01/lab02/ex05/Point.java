@@ -55,7 +55,7 @@ public class Point {
     /**
      * Returns the value of y coordinate
      *
-     * @return the value of x coordinate
+     * @return the value of y coordinate
      */
 
     public double getY() {
@@ -63,7 +63,7 @@ public class Point {
     }
 
     /**
-     * Moves the point by a given amount in x- and y-direction
+     * Make a new point, that was moved by a given amount in x- and y-direction
      *
      * @param x the amount point moves along the x axis
      * @param y the amount point moves along the y axis
@@ -74,7 +74,7 @@ public class Point {
     }
 
     /**
-     * Scales both of the coordinates by a given factor
+     * Make a new point with coordinates, that were both scaled both by a given factor
      *
      * @param factor multiplies both of the coordinates by this value
      * @return a new Point object with new coordinates
