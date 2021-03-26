@@ -7,13 +7,6 @@ package ru.mephi.java.chapter01.lab02.ex09;
 // Должен ли этот класс быть неизменяемым и почему?
 
 public class Class09 {
-    public static void main(String[] args) {
-        Car golf = new Car(10);
-        golf.drive(110);
-        golf.refuel(5);
-        System.out.println("Fuel level is " + golf.getFuel());
-        System.out.println("Distance traveled is " + golf.getDistance());
-    }
 
     public static class Car {
         private final double consumptionRate;

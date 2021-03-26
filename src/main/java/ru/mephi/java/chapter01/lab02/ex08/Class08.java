@@ -5,7 +5,9 @@ package ru.mephi.java.chapter01.lab02.ex08;
 // Имеются ли такие средства в применяемой вами ИСР?
 
 public class Class08 {
+
     public static void main(String[] args) {
         System.out.println("\nTo write this line of code I used \"sout\" shortcut!");
+
     }
 }

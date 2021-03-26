@@ -32,17 +32,4 @@ public class IntHolder {
         b.setValue(temp);
     }
 
-    public static void main(String[] args) {
-        int i = 7;
-        int j = 17;
-        System.out.println("Start - " + i + " and " + j + ".");
-        intSwap(i,j);
-        System.out.println("After intSwap - " + i + " and " + j + ".");
-
-        IntHolder a = new IntHolder(7);
-        IntHolder b = new IntHolder(17);
-        System.out.println("\nStart - " + a.getValue() + " and " + b.getValue() + ".");
-        intHolderSwap(a,b);
-        System.out.println("After intHolderSwap - " + a.getValue() + " and " + b.getValue() + ".");
-    }
 }

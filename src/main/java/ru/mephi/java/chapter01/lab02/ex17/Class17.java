@@ -26,7 +26,7 @@ public class Class17 {
             }
         }
 
-        private class Iterator {
+        public class Iterator {
             private Node current = head;
 
             public boolean hasNext() {
@@ -67,18 +67,4 @@ public class Class17 {
         }
     }
 
-    public static void main(String[] args) {
-        Queue queue = new Queue();
-        queue.add("First");
-        queue.add("Second");
-        queue.add("Third");
-        queue.add("Fourth");
-        queue.add("Fifth");
-        queue.add("Sixth");
-        while (queue.iterator().hasNext()){
-            System.out.println(queue.iterator().next());
-            queue.remove();
-        }
-
-    }
 }
