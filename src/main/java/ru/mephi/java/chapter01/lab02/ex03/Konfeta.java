@@ -38,8 +38,8 @@ public class Konfeta {
         return this.amount;
     }
 
-    public void printColor(){ //Аксессор, который не изменяет объект и ничего не возвращает.
-        System.out.println("What?" + this.color);
+    public void setSameColor(Konfeta konf){ //Аксессор, который не изменяет объект и ничего не возвращает.
+        konf.setColor(this.getColor());
     }
 
 }

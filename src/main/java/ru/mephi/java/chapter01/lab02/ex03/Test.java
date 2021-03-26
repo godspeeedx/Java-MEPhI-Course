@@ -10,10 +10,12 @@ public class Test {
         String color = in.next();
 
         Konfeta marmeladka = new Konfeta();
-
-        marmeladka.printColor();
+        Konfeta iriska = new Konfeta();
+       // marmeladka.printColor();
 
         marmeladka.setColor(color);
+        iriska.setSameColor(marmeladka);
+
         System.out.println("Your marmeladka is " + marmeladka.getColor());
         if (marmeladka.getEdible())
             System.out.println("You can eat it.");
