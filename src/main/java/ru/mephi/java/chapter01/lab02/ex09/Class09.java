@@ -11,7 +11,7 @@ public class Class09 {
     public static class Car {
         private final double consumptionRate;
         private double fuel;
-        private double distance = 0.0;
+        private double distance = 0;
 
         public Car(double consumptionRate, double fuel) {
             this.consumptionRate = consumptionRate;

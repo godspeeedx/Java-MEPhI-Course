@@ -2,7 +2,7 @@ package ru.mephi.java.chapter01.lab02.ex17;
 
 public class Test {
     public static void main(String[] args) {
-        Class17.Queue queue = new Class17.Queue();
+        Queue queue = new Queue();
         queue.add("First");
         queue.add("Second");
         queue.add("Third");

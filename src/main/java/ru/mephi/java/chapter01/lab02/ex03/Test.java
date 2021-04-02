@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
+        String test = "empty";
+        test.concat("Blue");
+
         Scanner in = new Scanner(System.in);
         System.out.println("Choose the color of the candy!");
         String color = in.next();

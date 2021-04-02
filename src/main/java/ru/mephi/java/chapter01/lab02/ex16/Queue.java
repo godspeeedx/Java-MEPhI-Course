@@ -10,7 +10,7 @@ public class Queue {
     private Node head;
     private Node tail;
 
-    private static class Node {
+    private class Node {
         private final String data;
         Node next;
 

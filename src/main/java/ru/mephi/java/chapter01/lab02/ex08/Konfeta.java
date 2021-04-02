@@ -4,10 +4,15 @@ package ru.mephi.java.chapter01.lab02.ex08;
 // повторяющийся код. В большинстве ИСР имеются средства, упрощающие написание повторяющегося шаблонного кода.
 // Имеются ли такие средства в применяемой вами ИСР?
 
-public class Class08 {
+public class Konfeta {
+
+    private String color;
+    private boolean edible;
+    private int amount;
+
+
 
     public static void main(String[] args) {
-        System.out.println("\nTo write this line of code I used \"sout\" shortcut!");
 
     }
 }

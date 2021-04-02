@@ -3,6 +3,8 @@ package ru.mephi.java.chapter01.lab02.ex01;
 //Измените представленную в этой главе программу вывода календаря таким образом, чтобы неделя начиналась с воскресенья.
 // Кроме того, организуйте перевод на новую строку в конце предыдущей, но только один раз.
 
+//произвольный день недели, печатать месяц
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
@@ -21,7 +23,7 @@ public class Class01 {
         System.out.println(" Sun Mon Tue Wed Thu Fri Sat"); // change the order of dates
         DayOfWeek weekday = date.getDayOfWeek();
         int value = weekday.getValue(); // 1 = Monday, ... 7 = Sunday
-        for (int i = 1; i < (value % 7 + 1); i++) // different condition for first 4 spaces
+        for (int i = 0; i < (value % 7); i++) // different condition for first 4 spaces
             System.out.print("    ");
         while (date.getMonthValue() == month) {
             System.out.printf("%4d", date.getDayOfMonth());

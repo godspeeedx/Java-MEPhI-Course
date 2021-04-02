@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Invoice {
 
+    private final ArrayList<Item> items = new ArrayList<>();
+
     private static class Item {
         String description;
         int quantity;
@@ -22,7 +24,6 @@ public class Invoice {
         }
     }
 
-    private ArrayList<Item> items = new ArrayList<>();
 
     public void addItem(String description, int quantity, double unitPrice) {
         Item newItem = new Item();
