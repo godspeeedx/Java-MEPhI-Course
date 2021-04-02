@@ -23,7 +23,11 @@ public class Queue {
     }
 
     public String remove() {
-        return nodes.remove(nodes.size() - 1);
+        if (nodes.size() == 0) {
+            return null;
+        } else {
+            return nodes.remove(nodes.size() - 1);
+        }
     }
 
 }

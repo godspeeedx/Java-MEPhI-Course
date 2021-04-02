@@ -9,27 +9,26 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Class10 {
-    public static class RandomNumbers {
-        public static int randomElement(int[] data) {
-            Random generator = new Random();
-            if (data.length == 0) {
-                return 0;
-            }
-            int position = generator.nextInt(data.length);
-            return data[position];
-        }
+public class RandomNumbers {
 
-        public static int randomElement(ArrayList<Integer> data) {
-            Random generator = new Random();
-            if (data.isEmpty()) {
-                return 0;
-            }
-            int position = generator.nextInt(data.size());
-            return data.get(position);
+    public static int randomElement(int[] data) {
+        Random generator = new Random();
+        if (data.length == 0) {
+            return 0;
         }
-
+        int position = generator.nextInt(data.length);
+        return data[position];
     }
+
+    public static int randomElement(ArrayList<Integer> data) {
+        Random generator = new Random();
+        if (data.isEmpty()) {
+            return 0;
+        }
+        int position = generator.nextInt(data.size());
+        return data.get(position);
+    }
+
 
     public static void main(String[] args) {
         System.out.println("Insert integer numbers:");
