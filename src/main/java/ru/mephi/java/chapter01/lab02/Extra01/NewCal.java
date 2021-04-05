@@ -46,7 +46,7 @@ public class NewCal {
             for (int i = 0; i < (7 - weekStartValue + actualStartValue); i++)
                 System.out.print("    ");
         } else if (weekStartValue < actualStartValue) {
-            for (int i = 0; i < actualStartValue-weekStartValue; i++)
+            for (int i = 0; i < actualStartValue - weekStartValue; i++)
                 System.out.print("    ");
         }
         while (date.getMonthValue() == month) {

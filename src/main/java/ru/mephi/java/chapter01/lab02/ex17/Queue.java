@@ -24,6 +24,10 @@ public class Queue {
         }
     }
 
+    public Iterator iterator() {
+        return new Iterator();
+    }
+
     public class Iterator {
         private Node current = head;
 
@@ -60,7 +64,5 @@ public class Queue {
         }
     }
 
-    public Iterator iterator() {
-        return new Iterator();
-    }
+
 }

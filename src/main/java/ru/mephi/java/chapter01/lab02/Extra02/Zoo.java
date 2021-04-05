@@ -7,8 +7,14 @@ public class Zoo {
     private String name = "Moscow Zoo";
     private static int showcase = 0;
 
+    public String getName() {
+        return name;
+    }
 
     private class Elephant {
+        public String whereAmI() {
+            return getName();
+        }
 
         public void print() {
             System.out.println(name + showcase);
@@ -16,6 +22,7 @@ public class Zoo {
     }
 
     private static class Snake {
+
         public void print() {
             System.out.println(showcase);
         }

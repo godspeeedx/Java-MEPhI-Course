@@ -3,6 +3,7 @@ package ru.mephi.java.chapter01.lab02.ex04;
 
 public class Test {
     public static void main(String[] args) {
+
         int i = 7;
         int j = 17;
         System.out.println("Start - " + i + " and " + j + ".");

@@ -10,7 +10,20 @@ public class Konfeta {
     private boolean edible;
     private int amount;
 
+    public Konfeta(String color, boolean edible, int amount) {
+        this.color = color;
+        this.edible = edible;
+        this.amount = amount;
+    }
 
+    @Override
+    public String toString() {
+        return "Konfeta{" +
+                "color='" + color + '\'' +
+                ", edible=" + edible +
+                ", amount=" + amount +
+                '}';
+    }
 
     public static void main(String[] args) {
 
