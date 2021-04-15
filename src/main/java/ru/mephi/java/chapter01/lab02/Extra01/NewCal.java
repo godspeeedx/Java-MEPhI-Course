@@ -2,11 +2,10 @@ package ru.mephi.java.chapter01.lab02.Extra01;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class NewCal {
 
-    private static int printDates(String weekStart) {
+    private int printDates(String weekStart) {
 
         String[] week = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
@@ -26,15 +25,7 @@ public class NewCal {
 
     }
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("Enter the day the week starts:");
-        String weekStart = in.next();
-        System.out.println("Enter the month:");
-        int month = in.nextInt();
-        System.out.println("Enter the year:");
-        int year = in.nextInt();
+    public void printAnyDayCal(String weekStart, int month, int year) {
         LocalDate date = LocalDate.of(year, month, 1);
 
         int weekStartValue = printDates(weekStart);
