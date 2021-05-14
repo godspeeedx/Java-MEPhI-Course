@@ -5,9 +5,7 @@ package ru.mephi.java.chapter01.lab02.ex10;
 // должен быть возвращен нуль.) Почему эти методы нельзя сделать методами экземпляра (инстанс методами) типа t [ ] или ArrayList<Integer>?
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class RandomNumbers {
 

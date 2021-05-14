@@ -1,4 +1,4 @@
-package extraFor12;
+package ru.mephi.java.chapter01.lab02.ex12;
 
 // Создайте исходный файл HelloWorld. java, где класс HelloWorld объявляется в пакете chOl.secOl.
 // Разметите его в каком-нибудь каталоге, но только не в подкаталоге chOl/secOl.
