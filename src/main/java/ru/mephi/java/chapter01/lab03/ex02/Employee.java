@@ -21,7 +21,7 @@ public class Employee implements IMeasurable {
 
     @Override
     public double getMeasure() {
-        return 0;
+        return salary;
     }
 
     public static double average(IMeasurable[] objects) {

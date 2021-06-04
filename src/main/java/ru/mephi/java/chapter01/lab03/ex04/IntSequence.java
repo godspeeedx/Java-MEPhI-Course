@@ -11,7 +11,7 @@ public interface IntSequence {
 
             @Override
             public boolean hasNext() {
-                return this.currInt != objects.length;
+                return this.currInt < objects.length;
             }
 
             @Override

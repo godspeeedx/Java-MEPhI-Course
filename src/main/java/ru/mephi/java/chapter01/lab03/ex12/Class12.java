@@ -14,22 +14,9 @@ public class Class12 {
     }
 
     public static void filesSort(File[] filesArr) {
-        Comparator<File> comp = (file1, file2) -> {
-            if (file1.isDirectory()) {
-                if (file2.isDirectory()) {
-                    return 0;
-                } else {
-                    return -1;
-                }
-            } else {
-                if (file2.isDirectory()) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-        };
-        Arrays.sort(filesArr, comp.thenComparing(File::getName));
+
+        Arrays.sort(filesArr, Comparator.comparing(File::isDirectory).thenComparing(File::getName));
+
     }
 
     public static File[] getDirFiles(String dir) {

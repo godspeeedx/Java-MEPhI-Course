@@ -5,6 +5,11 @@ import java.util.Comparator;
 public class NumberComparator implements Comparator<Digit> {
     @Override
     public int compare(Digit o1, Digit o2) {
-        return o1.getDigit() - o2.getDigit();
+        if (o1.getDigit() > o2.getDigit())
+            return 1;
+        else if (o1.getDigit() == o2.getDigit())
+            return 0;
+        else
+            return -1;
     }
 }

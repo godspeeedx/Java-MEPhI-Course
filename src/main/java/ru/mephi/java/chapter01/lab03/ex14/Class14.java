@@ -9,11 +9,12 @@ import java.util.Comparator;
 
 public class Class14 {
     public static void main(String[] args) {
-        Employee[] empArr = new Employee[]{new Employee(),
-                new Employee(),
-                new Employee(),
-                new Employee(),
-                new Employee()};
+        Employee[] empArr = new Employee[]{
+                new Employee(1000,"aaa"),
+                new Employee(2000,"bbbbb"),
+                new Employee(3000,"c"),
+                new Employee(3000,"ddddddddd"),
+                new Employee(4000,"g")};
         printEmployees(empArr);
         //cleverEmployeeSort(empArr);
         cleverEmployeeSortReversed(empArr);

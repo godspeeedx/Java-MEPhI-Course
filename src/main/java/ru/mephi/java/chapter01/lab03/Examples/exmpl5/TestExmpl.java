@@ -2,10 +2,10 @@ package ru.mephi.java.chapter01.lab03.Examples.exmpl5;
 
 import ru.mephi.java.chapter01.lab03.Examples.exmpl2.Digit;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class TestExmpl {
 
@@ -27,13 +27,27 @@ public class TestExmpl {
         //System.out.println(digs);
 
         //Класс::МетодЭкземпляра
-        Collections.sort(digits, Digit::compareTo);
-        //Collections.sort(digits, Digit::test);
+
+        Function<Digit,String> test1 = Digit::getDigitName;
+
+        Function<Digit,Integer> test2 = Digit::getDigit;
+
+        Consumer<Digit> test5 = Digit::anothertest;
+
+        Comparator<Digit> test3 = Digit::anotherCompare;
+
+        BiFunction<Digit,String,Integer> test6 = Digit::length2;
+        //Collections.sort(digits, Digit::compareTo);
+        Collections.sort(digits, Digit::anotherCompare);
         System.out.println(digits);
         //Класс::СтатикМетод
+
+        Runnable test4 = Digit::privet;
+        digits.forEach(test5);
         digits.removeIf(Objects::nonNull);
         System.out.println(digits);
         //Объект::МетодЭкз
+
         digits.add(new Digit("six", 6));
         digits.add(new Digit("seven", 7));
         digits.forEach(System.out::println);
