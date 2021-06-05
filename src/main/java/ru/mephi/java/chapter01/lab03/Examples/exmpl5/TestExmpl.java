@@ -28,9 +28,19 @@ public class TestExmpl {
 
         //Класс::МетодЭкземпляра
 
-        Function<Digit,String> test1 = Digit::getDigitName;
+        MyFuncInterface testtest = Digit::getDigitName;
 
-        Function<Digit,Integer> test2 = Digit::getDigit;
+        String a = testtest.getSomething(digs[3]);
+
+        System.out.println(a);
+
+        /*
+        MyFuncInterface testtest2 = Digit::getDigit;
+
+        int b = testtest2.getSomething(digs[3]);
+
+        System.out.println(b);
+
 
         Consumer<Digit> test5 = Digit::anothertest;
 
@@ -51,6 +61,6 @@ public class TestExmpl {
         digits.add(new Digit("six", 6));
         digits.add(new Digit("seven", 7));
         digits.forEach(System.out::println);
-
+         */
     }
 }

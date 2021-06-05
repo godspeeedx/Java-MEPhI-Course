@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface IMyIterator<T> {
-    T next();
+     T next();
 
     boolean hasNext();
 
@@ -27,7 +27,6 @@ public interface IMyIterator<T> {
                 nextObjectSet = false;
                 return nextObject;
             }
-
 
             @Override
             public boolean hasNext() {
@@ -52,6 +51,8 @@ public interface IMyIterator<T> {
         };
     }
 
+
+
     static <T> IMyIterator<T> fromIterator(Iterator<T> iter) {
         return new IMyIterator<T>() {
 
@@ -68,17 +69,17 @@ public interface IMyIterator<T> {
     }
 
 
-    default <K> Map<K, List<T>> collectToMap(Function<T, K> function) {
+    default   <K> Map<K, List<T>> collectToMap(Function<T, K> function) {
         Map<K, List<T>> map = new HashMap<>();
         while (hasNext()) {
             T object = next();
             K key = function.apply(object);
-            List<T> list = new ArrayList<>();
             if (!map.containsKey(key)) {
-                list.add(object);
-                map.put(key, list);
+                List<T> newlist = new ArrayList<>();
+                newlist.add(object);
+                map.put(key, newlist);
             } else {
-                list = map.get(key);
+                List<T> list = map.get(key);
                 list.add(object);
             }
         }

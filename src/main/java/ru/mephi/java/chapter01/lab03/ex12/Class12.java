@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class Class12 {
     public static void main(String[] args) {
-        File[] files = getDirFiles("D:\\IntelliJ IDEA 2019.3.2");
+        File[] files = getDirFiles("D:\\");
         filesSort(files);
         for (File file : files) {
             System.out.println(file);
@@ -16,7 +16,6 @@ public class Class12 {
     public static void filesSort(File[] filesArr) {
 
         Arrays.sort(filesArr, Comparator.comparing(File::isDirectory).thenComparing(File::getName));
-
     }
 
     public static File[] getDirFiles(String dir) {
