@@ -4,21 +4,28 @@ package ru.mephi.java.chapter01.lab01.extra;
 //введет что-то отличное от числа. Сохранять числа в массив. По результатам выполнения
 //вывести массив.
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Extra {
-    public static void main(String[] args) {
-        System.out.println("Вводите целочисленные значения:");
-        Scanner in = new Scanner(System.in);
-        int[] array = new int[1];
-        int i = 0;
-        while (in.hasNextInt()) {
-            System.out.println("И еще одно:");
-            array = Arrays.copyOf(array, i + 1);
-            array[i] = in.nextInt();
-            i++;
+
+    public static int getResult(List<Integer> parcels, int m) {
+        ArrayList<ArrayList<Integer>> pairs = new ArrayList<>();
+        for (int i = 0; i < parcels.size() - 1; i++) {
+            for (int j = 1; j < parcels.size();j++) {
+                ArrayList<Integer> pair = new ArrayList<>(2);
+                if (parcels.get(i) + parcels.get(j) == m) {
+                    pair.add(parcels.get(i));
+                    pair.add(parcels.get(j));
+                    pairs.add(pair);
+                }
+            }
         }
-        System.out.println(Arrays.toString(array));
+        System.out.println(pairs);
+        return pairs.size();
+    }
+
+    public static void main(String[] args) {
+        List<Integer> parcels = List.of(1, 3, 2, 3);
+        System.out.println(getResult(parcels, 6));
     }
 }

@@ -5,10 +5,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface IMyIterator<T> {
-     T next();
+    T next();
 
     boolean hasNext();
-
 
     default IMyIterator<T> filter(Predicate<T> pred) {
         IMyIterator<T> iter = this;
