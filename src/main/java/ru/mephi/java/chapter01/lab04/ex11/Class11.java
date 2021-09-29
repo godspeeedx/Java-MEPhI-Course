@@ -11,7 +11,8 @@ public class Class11 {
         Field out = cl.getDeclaredField("out");// no such field
         Class<?> outClass = out.getType();
         Method println = outClass.getMethod("println", String.class);//no such method
-        println.invoke(out.get(null), message); //invokation target exception, illegal access
+        println.invoke(out.get(null), message);//invocation target exception, illegal access
+
     }
 
     public static void main(String[] args) throws NoSuchMethodException, NoSuchFieldException, ClassNotFoundException, IllegalAccessException, InvocationTargetException {
