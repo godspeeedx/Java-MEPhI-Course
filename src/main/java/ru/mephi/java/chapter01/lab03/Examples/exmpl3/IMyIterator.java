@@ -51,7 +51,6 @@ public interface IMyIterator<T> {
     }
 
 
-
     static <T> IMyIterator<T> fromIterator(Iterator<T> iter) {
         return new IMyIterator<T>() {
 
@@ -68,7 +67,7 @@ public interface IMyIterator<T> {
     }
 
 
-    default   <K> Map<K, List<T>> collectToMap(Function<T, K> function) {
+    default <K> Map<K, List<T>> collectToMap(Function<T, K> function) {
         Map<K, List<T>> map = new HashMap<>();
         while (hasNext()) {
             T object = next();
