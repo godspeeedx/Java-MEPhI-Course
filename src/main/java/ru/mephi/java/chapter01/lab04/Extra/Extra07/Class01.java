@@ -5,7 +5,6 @@ public class Class01 {
     private String b;
     public Class01 next;
 
-
     public Class01(int a, String b) {
         this.a = a;
         this.b = b;

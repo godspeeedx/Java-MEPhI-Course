@@ -46,12 +46,13 @@ public class UniversalToString {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
         hashMap.replace(object, ("Element ¹" + (++count) + " - "));
         stringBuilder.append(hashMap.get(object));
         stringBuilder.append(cl.getSimpleName());
-
+        stringBuilder.append("[");
         do {
-            stringBuilder.append("[");
+
             Field[] fields = cl.getDeclaredFields();
             AccessibleObject.setAccessible(fields, true);
             for (Field f : fields) {

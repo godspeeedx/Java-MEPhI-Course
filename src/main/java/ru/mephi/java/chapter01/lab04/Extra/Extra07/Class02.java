@@ -1,11 +1,12 @@
 package ru.mephi.java.chapter01.lab04.Extra.Extra07;
 
-public class Class02 {
+public class Class02 extends Class01{
     private boolean a2;
     public Class01 next;
 
 
-    public Class02(boolean a2){
+    public Class02(boolean a2, int a, String b){
+        super(a,b);
         this.a2 = a2;
     }
 
