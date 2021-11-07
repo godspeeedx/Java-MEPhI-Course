@@ -1,43 +1,51 @@
 package ru.mephi.java.chapter02.lab05.ex05;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Class05 {
 
-    public String method(String filenameFrom, String filenameTo) {
-        StringBuilder resultString = new StringBuilder();
-        Scanner in = null;
+    public void method(String filenameFrom, String filenameTo) throws Exception {
+        Scanner sc = null;
         File file;
         PrintWriter printWriterOut = null;
+        Exception ex = null;
         try {
             file = new File(filenameFrom);
-            in = new Scanner(file);
+            sc = new Scanner(file);
             printWriterOut = new PrintWriter(filenameTo);
-            while (in.hasNext()) {
-                resultString.append(in.next().toLowerCase()).append(" ");
+            while (sc.hasNext()) {
+                printWriterOut.println(sc.next().toLowerCase());
             }
-            printWriterOut.print(resultString.toString().trim());
-        } catch (NullPointerException npEx) {
-            System.err.println(filenameFrom + " caused because of null pathname");
-        } catch (FileNotFoundException fileNotFoundEx) {
-            System.err.println("File " + filenameFrom + " wasn't found");
-        } catch (SecurityException securityEx) {
-            System.err.println("Do not have necessary access to file" + filenameTo);
-        } catch (IllegalStateException illegalStateEx) {
-            System.err.println("Scanner is closed, data can't be written");
+        } catch (Exception e) {
+            ex = e;
         } finally {
-            // First close last
-            if (in != null) {
-                in.close();
+            try {
+                if (sc != null) {
+                    sc.close();
+                }
+            } catch (RuntimeException e) {
+                if (ex != null) {
+                    ex.addSuppressed(e);
+                } else {
+                    ex = e;
+                }
             }
-            if (printWriterOut != null) {
-                printWriterOut.close();
+            try {
+                if (printWriterOut != null) {
+                    printWriterOut.close();
+                }
+            } catch (RuntimeException e) {
+                if (ex != null) {
+                    ex.addSuppressed(e);
+                } else {
+                    ex = e;
+                }
             }
         }
-        return resultString.toString().trim();
+        if (ex != null) {
+            throw ex;
+        }
     }
-
 }

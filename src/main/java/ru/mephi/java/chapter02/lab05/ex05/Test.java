@@ -10,9 +10,9 @@ public class Test {
     private static final String filenameFrom = basePath.concat("lab5.txt");
     private static final String filenameTo = basePath.concat("lab5ex05.txt");
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Class05 class05 = new Class05();
-        System.out.println(class05.method(filenameFrom, filenameTo));
+        class05.method(filenameFrom, filenameTo);
     }
 
 }
