@@ -21,7 +21,7 @@ public interface Choice {
         } else {
             String[] s = arrayList.get(0).split(" ");
             for (String st : s) {
-                if (st.matches("[a-zA-Z+]")) {
+                if (st.matches("[a-zA-Z+]")) { // 15
                     exception = new FileFormatException("Проверьте правильность написания ФИО, не должно встречаться лишних символов и цифр");
                 }
             }
@@ -63,7 +63,7 @@ public interface Choice {
             }
         }
         String phone = arrayList.get(3).replaceAll("\\s", "");
-        if (phone.length() != 11 || !(phone.matches("[-+]?\\d+"))) {
+        if (phone.length() != 11 || !(phone.matches("[+]?\\d+"))) {
             if (exception != null) {
                 exception.addSuppressed(new FileFormatException("Некорректный формат телефона"));
             } else {
