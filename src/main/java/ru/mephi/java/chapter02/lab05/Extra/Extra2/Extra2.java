@@ -23,8 +23,12 @@ public class Extra2 {
         try {
             Objects.requireNonNull(ch).execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            for (Throwable ex : e.getSuppressed()) {
+                System.out.println(ex.getMessage());
+            }
         }
+        System.out.println("готово!");
     }
 
 

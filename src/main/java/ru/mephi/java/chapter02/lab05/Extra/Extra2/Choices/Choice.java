@@ -21,8 +21,8 @@ public interface Choice {
         } else {
             String[] s = arrayList.get(0).split(" ");
             for (String st : s) {
-                if (st.matches("[a-zA-Z+]")) { // 15
-                    exception = new FileFormatException("Проверьте правильность написания ФИО, не должно встречаться лишних символов и цифр");
+                if (st.length() > 15 || (st.matches("[a-zA-Z]"))) {
+                    exception = new FileFormatException("Проверьте правильность написания ФИО, не должно встречаться лишних символов и цифр, максимальная длина одного элемента - 15");
                 }
             }
         }
@@ -36,34 +36,16 @@ public interface Choice {
             }
         }
         String email = arrayList.get(2).trim();
-        if (!(email.contains(" ")) && !(email.contains("~"))) {
-            int countDog = 0;
-            int countDot = 0;
-            for (int i = 0; i < email.length(); i++) {
-                if (email.charAt(i) == '@') {
-                    countDog++;
-                }
-                if (email.charAt(i) == '.') {
-                    countDot++;
-                }
-                if (countDog == 2 || countDot > countDog) {
-                    if (exception != null) {
-                        exception.addSuppressed(new FileFormatException("Некорректный формат электронного адреса"));
-                    } else {
-                        exception = new FileFormatException("Некорректный формат электронного адреса");
-                    }
-                    break;
-                }
-            }
-        } else {
+        if (!(email.matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\\b"))) {
             if (exception != null) {
-                exception.addSuppressed(new FileFormatException("В электронном адресе сторонние символы"));
+                exception.addSuppressed(new FileFormatException("Некорректный формат почты"));
             } else {
-                exception = new FileFormatException("В электронном адресе сторонние символы");
+                exception = new FileFormatException("Некорректный формат почты");
             }
         }
+
         String phone = arrayList.get(3).replaceAll("\\s", "");
-        if (phone.length() != 11 || !(phone.matches("[+]?\\d+"))) {
+        if (phone.length() != 11 || (phone.matches("[78][0-9]]"))) {
             if (exception != null) {
                 exception.addSuppressed(new FileFormatException("Некорректный формат телефона"));
             } else {

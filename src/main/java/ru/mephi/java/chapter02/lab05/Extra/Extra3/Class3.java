@@ -1,63 +1,55 @@
 package ru.mephi.java.chapter02.lab05.Extra.Extra3;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
 public class Class3 {
+    public static void main(String[] args) {
+        int f1 = 1;
+        int f2 = 2;
+        int f3 = 3;
+        int f4 = 4;
 
-    public static int checkPassword1(String password) {
-        char[] chArray = password.toCharArray();
-
-        if (password.equals("")) {
-            return -1;
+        try {
+            System.out.println(ExceptionMethod(f1, f2, f3, f4));
+        } catch (MyException e) {
+            e.printStackTrace();
         }
-
-        if (chArray.length < 4) {
-            return -2;
-        }
-
-        if (chArray.length > 8) {
-            return -3;
-        }
-        return 1;
+        ArrayList<Double> res = new ArrayList<>();
+        Error er = ErrorsMethod(f1, f2, f3, f4, res);
+        if (er == Error.OK) {
+            System.out.println(res);
+        } else System.out.println(er);
     }
 
-    public static String checkPassword2(String password) throws MyException {
-        char[] chArray = password.toCharArray();
-
-        if (password.equals("")) {
-            throw new MyException("Пароль не может быть пустой строкой");
-        }
-
-        if (chArray.length < 4) {
-            throw new MyException("Пароль должен содержать больше 4-х символов");
-        }
-
-        if (chArray.length > 8) {
-            throw new MyException("Пароль должен содержать не больше 8-ми символов");
-        }
-        return password;
+    public static double ExceptionMethod(int f1, int f2, int f3, int f4) throws MyException {
+        Double one = WithExceptions.toDouble(f1);
+        Double two = WithExceptions.toDouble(f2);
+        Double three = WithExceptions.toDouble(f3);
+        Double four = WithExceptions.toDouble(f4);
+        return one * two * three * four;
     }
 
-    public static void main(String[] args) throws MyException {
-        String pw1 = "what";
-        //-------------------------------------------------
-        System.out.println("---Error Code---");
-        int res = checkPassword1(pw1);
-        if (res == -1){
-            System.out.println("Пароль не может быть пустой строкой");
-        } else {
-            if (res == -2){
-                System.out.println("Пароль должен содержать больше 4-х символов");
-            } else {
-                if (res == -3){
-                    System.out.println("Пароль должен содержать не больше 8-ми символов");
-                } else {
-                    System.out.println("Пароль принят");
+    public static Error ErrorsMethod(int f1, int f2, int f3, int f4, ArrayList<Double> res) {
+        ArrayList<Double> one = new ArrayList<>();
+        ArrayList<Double> two = new ArrayList<>();
+        ArrayList<Double> three = new ArrayList<>();
+        ArrayList<Double> four = new ArrayList<>();
+
+        if (WithErrors.toDouble(f1, one) == Error.OK) {
+            if (WithErrors.toDouble(f2, two) == Error.OK) {
+                if (WithErrors.toDouble(f3, three) == Error.OK) {
+                    if (WithErrors.toDouble(f4, four) == Error.OK) {
+                        res.add(one.get(0) * two.get(0) * three.get(0) * four.get(0));
+                        return Error.OK;
+                    }
+                    return WithErrors.toDouble(f4, four);
                 }
+                return WithErrors.toDouble(f3, three);
             }
+            return WithErrors.toDouble(f2, two);
         }
-        System.out.println("----------------");
-        //-------------------------------------------------------------------------------------------
-        System.out.println("---Exceptions---");
-        System.out.println("Пароль " + checkPassword2(pw1) + " принят");
-        System.out.println("----------------");
+        return WithErrors.toDouble(f1, one);
     }
+
 }
